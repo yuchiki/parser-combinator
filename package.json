@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "tslint 'src/*.ts' '__tests__/*.ts'",
     "test": "jest"
   },
   "jest": {
