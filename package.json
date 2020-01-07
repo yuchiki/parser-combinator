@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "tslint 'src/*.ts' '__tests__/*.ts'",
+    "lint": "eslint 'src/*.ts' '__tests__/*.ts'",
     "test": "jest"
   },
   "jest": {
@@ -32,8 +32,8 @@
     "@types/jest": "^24.0.25",
     "@types/node": "^12.12.17",
     "@typescript-eslint/eslint-plugin": "^2.11.0",
-    "@typescript-eslint/parser": "^2.11.0",
-    "eslint": "^6.7.2",
+    "@typescript-eslint/parser": "^2.15.0",
+    "eslint": "^6.8.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-prettier": "^3.1.2",
