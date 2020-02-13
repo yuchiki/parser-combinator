@@ -4,7 +4,7 @@ import { IndexedStringSource } from "../src/indexedStringSource";
 describe("ResultParser", () => {
   it("should return the given value without consuming input", () => {
     const res = ResultParser("input")(new IndexedStringSource("abcde"));
-    expect(res).toEqual(["input", "abcde"]);
+    expect(res).toEqual([["input", new IndexedStringSource("abcde")]]);
   });
 });
 
@@ -18,7 +18,7 @@ describe("ZeroParser", () => {
 describe("ItemParser", () => {
   it("should return the pair of the first letter and the rest.", () => {
     const res = ItemParser(new IndexedStringSource("abcde"));
-    expect(res).toEqual(["a", new IndexedStringSource("bcde")]);
+    expect(res).toEqual([["a", new IndexedStringSource("abcde").tail]]);
   });
 
   it("should not return any results if the source is empty.", () => {
