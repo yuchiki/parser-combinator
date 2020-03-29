@@ -1,3 +1,5 @@
+import { IndexedStringSource } from "../src/indexedStringSource";
+
 export type char = string;
 
 export interface Location {
@@ -13,3 +15,5 @@ export interface Source {
   tail: Source;
   isEOF: boolean;
 }
+
+export const NewSource = (str: string): Source => new IndexedStringSource(str);
