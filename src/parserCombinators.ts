@@ -11,3 +11,9 @@ export const Seq = <A, B>(
       restB,
     ]),
   );
+
+export const Bind = <A, B>(
+  parser: Parser<A>,
+  f: (v: A) => Parser<B>,
+): Parser<B> => (input: Source): [B, Source][] =>
+  parser(input).flatMap(([v, rest]: [A, Source]): [B, Source][] => f(v)(rest));
