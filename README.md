@@ -5,7 +5,7 @@ master: [![Build Status](https://travis-ci.com/yuchiki/parser-combinator.svg?bra
 TypeScriptの練習 & Parser Combinatorの習作
 
 
-[Graham Hutton and Erik Meijer. Monadic parser combinators. Technical Report NOTTCS-TR-96-4, Department of Computer Science, University of Nottingham, 1996](http://www.cs.nott.ac.uk//~pszgmh/monparsing.pdf) を参考に実装しています。
+[Monadic parser combinators](http://www.cs.nott.ac.uk//~pszgmh/monparsing.pdf)というテクニカルレポートを参考に実装しています。
 
 
 ## 目指す所
@@ -28,3 +28,6 @@ TypeScriptの練習 & Parser Combinatorの習作
 - [ ] Sourceが定義されている
 - [ ] サンプルとして数式パーサがある
 - [ ] サンプルとしてMLのサブセットのパーサががある
+
+## 参考文献
+- Graham Hutton and Erik Meijer. Monadic parser combinators. Technical Report NOTTCS-TR-96-4, Department of Computer Science, University of Nottingham, 1996
