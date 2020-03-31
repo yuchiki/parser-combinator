@@ -1,5 +1,6 @@
 import { Parser } from "./parser";
-import { Source } from "./source";
+import { char, Source } from "./source";
+import { ZeroParser, ItemParser, ResultParser } from "./primitiveParsers";
 
 export const Seq = <A, B>(
   parserA: Parser<A>,
@@ -17,3 +18,6 @@ export const Bind = <A, B>(
   f: (v: A) => Parser<B>,
 ): Parser<B> => (input: Source): [B, Source][] =>
   parser(input).flatMap(([v, rest]: [A, Source]): [B, Source][] => f(v)(rest));
+
+export const Sat = (p: (c: char) => boolean): Parser<char> =>
+  Bind(ItemParser, c => (p(c) ? ResultParser(c) : ZeroParser()));
