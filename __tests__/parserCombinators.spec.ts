@@ -1,5 +1,5 @@
 import { Seq, Sat } from "../src/parserCombinators";
-import { char, Source, NewSource } from "../src/source";
+import { Source, NewSource } from "../src/source";
 
 describe("Seq", () => {
   it("should apply one parser after another", () => {
