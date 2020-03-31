@@ -5,12 +5,16 @@ master: [![Build Status](https://travis-ci.com/yuchiki/parser-combinator.svg?bra
 TypeScriptの練習 & Parser Combinatorの習作
 
 
+[Graham Hutton and Erik Meijer. Monadic parser combinators. Technical Report NOTTCS-TR-96-4, Department of Computer Science, University of Nottingham, 1996](http://www.cs.nott.ac.uk//~pszgmh/monparsing.pdf) を参考に実装しています。
+
+
 ## 目指す所
 
 - Parser Combinatorとしての機能を果たす
 - OCamlの簡単なサブセットをパースできる
 - ドキュメントがある
 - CIがある
+
 
 
 ## 当面のロードマップ
