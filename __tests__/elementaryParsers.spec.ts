@@ -1,4 +1,4 @@
-import { CharParser, DigitParser } from "../src/elementaryParsers";
+import { CharParser, DigitParser, LowerParser } from "../src/elementaryParsers";
 import { NewSource } from "../src/source";
 
 describe("CharParser", () => {
@@ -34,5 +34,24 @@ describe("DigitParser", () => {
   it("should fail if the prefix of the source is not a digit", () => {
     const res = DigitParser(NewSource("abc"));
     expect(res.length).toBe(0);
+  });
+});
+
+describe("LowerParser", () => {
+  it("should parse a lower letter", () => {
+    for (const c of [..."abcdefghijklmnopqrstuvwxyz"]) {
+      const res = LowerParser(NewSource(c));
+      expect(res.length).toBe(1);
+      const [cRes, rest] = res[0];
+      expect(cRes).toBe(c);
+      expect(rest.currentString).toBe("");
+    }
+  });
+
+  it("should fail otherwise", () => {
+    for (const c of [..."A1- ,.?_"]) {
+      const res = LowerParser(NewSource(c));
+      expect(res.length).toBe(0);
+    }
   });
 });
