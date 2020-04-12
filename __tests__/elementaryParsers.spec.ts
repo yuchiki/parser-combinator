@@ -1,6 +1,5 @@
 import { CharParser, DigitParser, LowerParser } from "../src/elementaryParsers";
 import { NewSource } from "../src/source";
-import { executionAsyncId } from "async_hooks";
 
 describe("CharParser", () => {
   it("should succeed when the given string starts with the given letter", () => {
