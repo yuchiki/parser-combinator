@@ -1,4 +1,9 @@
-import { CharParser, DigitParser, LowerParser } from "../src/elementaryParsers";
+import {
+  CharParser,
+  DigitParser,
+  LowerParser,
+  UpperParser,
+} from "../src/elementaryParsers";
 import { NewSource } from "../src/source";
 
 describe("CharParser", () => {
@@ -51,6 +56,25 @@ describe("LowerParser", () => {
   it("should fail otherwise", () => {
     for (const c of [..."A1- ,.?_"]) {
       const res = LowerParser(NewSource(c));
+      expect(res.length).toBe(0);
+    }
+  });
+});
+
+describe("UpperParser", () => {
+  it("should parse an upper letter", () => {
+    for (const c of [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"]) {
+      const res = UpperParser(NewSource(c));
+      expect(res.length).toBe(1);
+      const [cRes, rest] = res[0];
+      expect(cRes).toBe(c);
+      expect(rest.currentString).toBe("");
+    }
+  });
+
+  it("should fail otherwise", () => {
+    for (const c of [..."a1- ,.?_"]) {
+      const res = UpperParser(NewSource(c));
       expect(res.length).toBe(0);
     }
   });
