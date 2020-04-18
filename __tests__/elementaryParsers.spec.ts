@@ -55,3 +55,22 @@ describe("LowerParser", () => {
     }
   });
 });
+
+describe("UpperParser", () => {
+  it("should parse an upper letter", () => {
+    for (const c of [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"]) {
+      const res = UpperParser(NewSource(c));
+      expect(res.length).toBe(1);
+      const [cRes, rest] = res[0];
+      expect(cRes).toBe(c);
+      expect(rest.currentString).toBe("");
+    }
+  });
+
+  it("should fail otherwise", () => {
+    for (const c of [..."a1- ,.?_"]) {
+      const res = UpperParser(NewSource(c));
+      expect(res.length).toBe(0);
+    }
+  });
+});

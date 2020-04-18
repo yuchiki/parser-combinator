@@ -9,3 +9,5 @@ export const DigitParser: Parser<char> = Sat(x =>
 );
 
 export const LowerParser: Parser<char> = Sat(x => /[a-z]/.test(x));
+
+export const UpperParser: Parser<char> = Sat(x => /[A-Z]/.test(x));
