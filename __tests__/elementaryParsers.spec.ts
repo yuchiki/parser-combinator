@@ -1,4 +1,9 @@
-import { CharParser, DigitParser, LowerParser } from "../src/elementaryParsers";
+import {
+  CharParser,
+  DigitParser,
+  LowerParser,
+  UpperParser,
+} from "../src/elementaryParsers";
 import { NewSource } from "../src/source";
 
 describe("CharParser", () => {
