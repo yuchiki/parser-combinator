@@ -7,6 +7,10 @@ TypeScriptの練習 & Parser Combinatorの習作
 
 [Monadic parser combinators](http://www.cs.nott.ac.uk//~pszgmh/monparsing.pdf)というテクニカルレポートを参考に実装しています。
 
+## 確認方法
+- make all-test
+  - lint, test, buildが通るかをチェックします。
+
 
 ## 目指す所
 
@@ -14,7 +18,6 @@ TypeScriptの練習 & Parser Combinatorの習作
 - OCamlの簡単なサブセットをパースできる
 - ドキュメントがある
 - CIがある
-
 
 
 ## 当面のロードマップ
