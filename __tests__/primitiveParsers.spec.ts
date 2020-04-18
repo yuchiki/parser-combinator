@@ -1,4 +1,9 @@
-import { ResultParser, ZeroParser, ItemParser } from "../src/primitiveParsers";
+import {
+  ResultParser,
+  ZeroParser,
+  ItemParser,
+  Plus,
+} from "../src/primitiveParsers";
 import { NewSource } from "../src/source";
 
 describe("ResultParser", () => {
@@ -24,5 +29,18 @@ describe("ItemParser", () => {
   it("should not return any results if the source is empty.", () => {
     const res = ItemParser(NewSource(""));
     expect(res).toEqual([]);
+  });
+});
+
+describe("Plus", () => {
+  it("should take or of two parsers", () => {
+    const p1 = ResultParser("res1");
+    const p2 = ResultParser("res2");
+    const res = Plus(p1, p2)(NewSource("foo"));
+    expect(res.length).toBe(2);
+    expect(res[0][0]).toBe("res1");
+    expect(res[1][0]).toBe("res2");
+    expect(res[0][1].currentString).toBe("foo");
+    expect(res[1][1].currentString).toBe("foo");
   });
 });
