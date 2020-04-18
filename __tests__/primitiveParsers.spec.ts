@@ -5,7 +5,6 @@ import {
   Plus,
 } from "../src/primitiveParsers";
 import { NewSource } from "../src/source";
-import { executionAsyncId } from "async_hooks";
 
 describe("ResultParser", () => {
   it("should return the given value without consuming input", () => {
