@@ -3,6 +3,7 @@ import {
   DigitParser,
   LowerParser,
   UpperParser,
+  LetterParser,
 } from "../src/elementaryParsers";
 import { NewSource } from "../src/source";
 
@@ -75,6 +76,28 @@ describe("UpperParser", () => {
   it("should fail otherwise", () => {
     for (const c of [..."a1- ,.?_"]) {
       const res = UpperParser(NewSource(c));
+      expect(res.length).toBe(0);
+    }
+  });
+});
+
+describe("LetterParser", () => {
+  it("should parser letters", () => {
+    const lowerLetters = "abcdefghijklmnopqrstuvwxyz";
+    const upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const letters = lowerLetters + upperLetters;
+    for (const c of [...letters]) {
+      const res = LetterParser(NewSource(c));
+      expect(res.length).toBe(1);
+      const [cRes, rest] = res[0];
+      expect(cRes).toBe(c);
+      expect(rest.currentString).toBe("");
+    }
+  });
+
+  it("should fail otherwise", () => {
+    for (const c of [..."1- ,.?_"]) {
+      const res = LetterParser(NewSource(c));
       expect(res.length).toBe(0);
     }
   });
