@@ -1,6 +1,6 @@
-.PHONY: all-test lint test build
+.PHONY: test-all lint test build
 
-all-test: lint test build
+test-all: lint test build
 
 lint:
 	npm run lint

@@ -8,7 +8,7 @@ TypeScriptの練習 & Parser Combinatorの習作
 [Monadic parser combinators](http://www.cs.nott.ac.uk//~pszgmh/monparsing.pdf)というテクニカルレポートを参考に実装しています。
 
 ## 確認方法
-- make all-test
+- make test-all
   - lint, test, buildが通るかをチェックします。
 
 
