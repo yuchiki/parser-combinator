@@ -1,6 +1,7 @@
 import { char } from "./source";
 import { Sat } from "./parserCombinators";
 import { Parser } from "./parser";
+import { Plus } from "./primitiveParsers";
 
 export const CharParser = (c: char): Parser<char> => Sat(y => c === y);
 
@@ -11,3 +12,5 @@ export const DigitParser: Parser<char> = Sat(x =>
 export const LowerParser: Parser<char> = Sat(x => /[a-z]/.test(x));
 
 export const UpperParser: Parser<char> = Sat(x => /[A-Z]/.test(x));
+
+export const LetterParser: Parser<char> = Plus(LowerParser, UpperParser);
