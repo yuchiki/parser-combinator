@@ -4,6 +4,7 @@ import {
   LowerParser,
   UpperParser,
   LetterParser,
+  AlphanumParser,
 } from "../src/elementaryParsers";
 import { NewSource } from "../src/source";
 
@@ -98,6 +99,29 @@ describe("LetterParser", () => {
   it("should fail otherwise", () => {
     for (const c of [..."1- ,.?_"]) {
       const res = LetterParser(NewSource(c));
+      expect(res.length).toBe(0);
+    }
+  });
+});
+
+describe("AlphanumParser", () => {
+  it("should parser letters and digits", () => {
+    const lowerLetters = "abcdefghijklmnopqrstuvwxyz";
+    const upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const digits = "0123456789";
+    const alphanums = lowerLetters + upperLetters + digits;
+    for (const c of [...alphanums]) {
+      const res = AlphanumParser(NewSource(c));
+      expect(res.length).toBe(1);
+      const [cRes, rest] = res[0];
+      expect(cRes).toBe(c);
+      expect(rest.currentString).toBe("");
+    }
+  });
+
+  it("should fail otherwise", () => {
+    for (const c of [..."+@:[:]_"]) {
+      const res = AlphanumParser(NewSource(c));
       expect(res.length).toBe(0);
     }
   });
