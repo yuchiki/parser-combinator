@@ -14,3 +14,5 @@ export const LowerParser: Parser<char> = Sat(x => /[a-z]/.test(x));
 export const UpperParser: Parser<char> = Sat(x => /[A-Z]/.test(x));
 
 export const LetterParser: Parser<char> = Plus(LowerParser, UpperParser);
+
+export const AlphanumParser: Parser<char> = Plus(LetterParser, DigitParser);
